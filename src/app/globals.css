@@ -18,12 +18,43 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+
+  .gradient-text {
+    background: linear-gradient(to right, #7000C010, #9D00FF, #FF00AA);
+    /* Gradient colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* For browsers that support background-clip */
+    color: transparent;
+    /* Ensure color is transparent */
+  }
+
+  .primary-gradient {
+    background: linear-gradient(to right, #9D00FF, #FF00AA);
+    /* Gradient colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* For browsers that support background-clip */
+    color: transparent;
+    /* Ensure color is transparent */
+  }
+
+  .line-gradient {
+    background: linear-gradient(to right, #9D00FF, #C779FF #9D00FF);
+    /* Gradient colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* For browsers that support background-clip */
+    color: transparent;
+    /* Ensure color is transparent */
+  }
+
 }
 
 @layer utilities {
