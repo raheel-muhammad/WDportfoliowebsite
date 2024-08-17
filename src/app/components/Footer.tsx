@@ -2,8 +2,8 @@ import React from 'react';
 import Logo from "@/assets/Logo.png";
 import Image from 'next/image';
 import facebookIcon from "@/assets/facebookIcon.svg";
-import instagramIcon from "@/assets/instagramIcon.svg";
-import linkedInIcon from "@/assets/linkedInIcon.svg";
+import instagramIcon from "@/assets/InstagramIcon.svg";
+import linkedInIcon from "@/assets/LinkedInIcon.svg";
 import twitterIcon from "@/assets/twitterIcon.svg";
 import Link from 'next/link';
 
