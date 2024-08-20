@@ -30,8 +30,8 @@ const Services = () => {
             </div>
             <div className='pt-[80px] flex justify-center items-center'>
                 <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[50px] '>
-                    {serviceItems.map((item) => (
-                        <div className='w-[320px] h-[320px] flex flex-col justify-center items-center rounded-[15px]  gradient-border'>
+                    {serviceItems.map((item, index) => (
+                        <div key={index} className='w-[320px] h-[320px] flex flex-col justify-center items-center rounded-[15px]  gradient-border'>
                             <Image src={item.icon} alt="" width={50} height={50} />
                             <span className='font-[700] text-[20px] pt-[25px] pb-[15px] font-raleway'>{item.title}</span>
                             <span className='font-[400] text-[14px] w-[280px] h-[80px] justify-center items-center text-center font-raleway'>{item.text}</span>
