@@ -15,7 +15,7 @@ const Dropdown = () => {
                 <button
                     type="button"
                     onClick={toggleDropdown}
-                    className="inline-flex justify-between items-center bg-[#8700E810]  border-[1px] border-[#2A0049]  text-[#ffffff60]  w-[480px] h-[50px] rounded-[8px] pl-[25px] font-[500] text-[16px] tracking-[2%] leading-[24px] pr-[25px]"
+                    className="inline-flex justify-between items-center bg-[#8700E810]  border-[1px] border-[#2A0049]  text-[#ffffff60]  w-[270px] h-[50px] sm:w-[480px] sm:h-[50px] rounded-[8px] pl-[25px] font-[500] text-[16px] tracking-[2%] leading-[24px] pr-[25px]"
                     id="menu-button"
                     aria-expanded={isOpen}
                     aria-haspopup="true"

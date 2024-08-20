@@ -16,12 +16,12 @@ interface WorkItem {
 const Work = () => {
     const [activeMenuItem, setActiveMenuItem] = useState<string>("/");
     const menuItems = [
-        { name: "All", url: "/", },
-        { name: "Web Apps", url: "/services", },
-        { name: "Mobile Apps", url: "/portfolio", },
-        { name: "UI/UX Design", url: "/testimonials", },
-        { name: "Creative Desiginig", url: "/contact", },
-        { name: "Digital Marketing", url: "/contact", }
+        { name: "All" },
+        { name: "Web Apps" },
+        { name: "Mobile Apps" },
+        { name: "UI/UX Design" },
+        { name: "Creative Desiginig" },
+        { name: "Digital Marketing" }
 
     ];
     const workItems: WorkItem[] = [
@@ -46,20 +46,24 @@ const Work = () => {
                         {menuItems.map((item) => (
                             <li className='flex justify-center items-center'>
                                 <a
-                                    href={item.url}
-                                    className={`flex items-center rounded-[20px] h-[34px] border-[1px] px-2 py-1 font-[400] text-[16px] gap-[10px]
-                ${activeMenuItem === item.url ? 'gradient-text' : 'text-white'}`}
-                                    onClick={() => handleMenuItemClick(item.url)}
+                                    className={`inline-flex items-center rounded-[20px] px-[30px] py-[0px] h-[40px] font-[500] text-[16px] gap-[10px] tracking-[2%] leading-[24px]
+        ${activeMenuItem === item.name
+                                            ? 'gradient-text gradient-border bg-[#8700E810]'
+                                            : 'text-white bg-[#8700E810] border-[#7000C020] border-[1px]'
+                                        }`}
+                                    onClick={() => handleMenuItemClick(item.name)}
                                 >
                                     <span>{item.name}</span>
                                 </a>
+
+
                             </li>
                         ))}
                     </ul>
                 </div>
             </div>
             <div className='pt-[60px] flex justify-center items-center'>
-                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[50px]'>
+                <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[50px]'>
                     {workItems.map((item) => (
                         <div className='w-[320px] h-[360px] flex flex-col justify-center items-center rounded-[15px]'>
                             <Image src={item.image} alt="" width={320} height={320} />

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import userImage from "@/assets/UserProfileImage.png";
 import ratings from "@/assets/Ratings.png";
@@ -10,100 +10,91 @@ const testimonialsItems = [
     { name: "John Doe", image: userImage, text: "Very good experience with Owais & his team, he was able to understand what we wanted to do and even proposed some update. delivery was ontime.", rating: ratings, date: "Aug 8, 2024" },
     { name: "John Doe", image: userImage, text: "Very good experience with Owais & his team, he was able to understand what we wanted to do and even proposed some update. delivery was ontime.", rating: ratings, date: "Aug 8, 2024" },
     { name: "John Doe", image: userImage, text: "Very good experience with Owais & his team, he was able to understand what we wanted to do and even proposed some update. delivery was ontime.", rating: ratings, date: "Aug 8, 2024" },
-    { name: "John Doe", image: userImage, text: "Very good experience with Owais & his team, he was able to understand what we wanted to do and even proposed some update. delivery was ontime.", rating: ratings, date: "Aug 8, 2024" }
+    { name: "John Doe", image: userImage, text: "Very good experience with Owais & his team, he was able to understand what we wanted to do and even proposed some update. delivery was ontime.", rating: ratings, date: "Aug 8, 2024" },
 ];
 
-const Testimonals = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const carouselRef = useRef<HTMLDivElement | null>(null);
-    const startX = useRef<number | null>(null);
-    const scrollLeft = useRef<number | null>(null);
+const Testimonials: React.FC = () => {
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [visibleItems, setVisibleItems] = useState<number>(1);
+
+    const updateVisibleItems = useCallback(() => {
+        const width = window.innerWidth;
+        if (width >= 1024) setVisibleItems(3); // lg screens
+        else if (width >= 768) setVisibleItems(2); // md screens
+        else setVisibleItems(1); // sm screens
+    }, []);
+
+    useEffect(() => {
+        updateVisibleItems();
+        window.addEventListener('resize', updateVisibleItems);
+        return () => window.removeEventListener('resize', updateVisibleItems);
+    }, [updateVisibleItems]);
 
     const handleDotClick = (index: number) => {
         setCurrentIndex(index);
-        if (carouselRef.current) {
-            const itemWidth = carouselRef.current.clientWidth;
-            carouselRef.current.scrollLeft = index * itemWidth;
-        }
     };
 
-    const handleMouseDown = (event: React.MouseEvent) => {
-        if (carouselRef.current) {
-            startX.current = event.pageX - carouselRef.current.offsetLeft;
-            scrollLeft.current = carouselRef.current.scrollLeft;
-            carouselRef.current.addEventListener('mousemove', handleMouseMove);
-            carouselRef.current.addEventListener('mouseup', handleMouseUp);
-            carouselRef.current.addEventListener('mouseleave', handleMouseUp);
-        }
-    };
+    const totalDots = Math.ceil(testimonialsItems.length / visibleItems);
 
-    const handleMouseMove = (event: MouseEvent) => {
-        if (carouselRef.current && startX.current !== null && scrollLeft.current !== null) {
-            const x = event.pageX - carouselRef.current.offsetLeft;
-            const walk = (x - startX.current) * 2; // Adjust scroll speed
-            carouselRef.current.scrollLeft = scrollLeft.current - walk;
-        }
-    };
-
-    const handleMouseUp = () => {
-        if (carouselRef.current) {
-            carouselRef.current.removeEventListener('mousemove', handleMouseMove);
-            carouselRef.current.removeEventListener('mouseup', handleMouseUp);
-            carouselRef.current.removeEventListener('mouseleave', handleMouseUp);
-
-            // Calculate the closest index based on the scroll position
-            const itemWidth = carouselRef.current.clientWidth;
-            const newIndex = Math.round(carouselRef.current.scrollLeft / itemWidth);
-            setCurrentIndex(newIndex);
-        }
-    };
+    const itemWidth: number = 100 / visibleItems;
+    const transformValue = `-${currentIndex * itemWidth}%`;
 
     return (
         <>
             <div className='flex flex-col items-center justify-center pt-[150px]'>
                 <p className='font-[700] text-[32px] font-[Raleway] primary-gradient'>TESTIMONIALS</p>
             </div>
-            <div className='pt-[80px] flex justify-center items-center'>
-                <div
-                    ref={carouselRef}
-                    className='relative w-full max-w-[1200px] overflow-hidden cursor-grab'
-                    onMouseDown={handleMouseDown}
-                >
+            <div className='relative w-full mt-[80px] px-4  overflow-hidden'>
+                <div className='overflow-hidden'>
                     <div
-                        className='flex transition-transform duration-500'
-                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                        className='flex transition-transform duration-500 ease-in-out'
+                        style={{ transform: `translateX(${transformValue})`, width: `${testimonialsItems.length * (400 + 40)}px` }} // Adjust width based on testimonial item width + gap
                     >
                         {testimonialsItems.map((item, index) => (
-                            <div key={index} className='flex-shrink-0 w-full p-[20px]'>
-                                <div className='w-full bg-[#8700E805] border-[1px] rounded-[15px] flex flex-col items-start p-[20px]'>
-                                    <div className='flex items-center mb-[10px]'>
-                                        <Image src={item.image} alt='' className='w-[50px] h-[50px] rounded-full' />
-                                        <div className='ml-[10px]'>
-                                            <span className='font-semibold'>{item.name}</span>
-                                            <div className='flex items-center'>
-                                                <Image src={item.rating} alt='' className='w-[100px] h-[20px]' />
-                                            </div>
+                            <div key={index} className='flex-none' style={{ width: '400px', height: '250px', marginRight: '40px' }}> {/* Set fixed width, height and gap */}
+                                <div className='relative gradient-border bg-[#8700E805] rounded-lg flex flex-col' style={{ height: '250px' }}> {/* Add gradient border */}
+                                    <div className='flex items-center gap-[15px] pl-[30px] pt-[30px]'>
+                                        <Image
+                                            src={item.image}
+                                            alt={item.name}
+                                            width={50}
+                                            height={50}
+                                            className='rounded-full'
+                                        />
+                                        <div className='flex flex-col'>
+                                            <p className='font-bold'>{item.name}</p>
+
+                                            <Image
+                                                src={item.rating}
+                                                alt="Rating"
+                                                width={100}
+                                                height={20}
+                                            />
+
                                         </div>
                                     </div>
-                                    <p className='mb-[10px]'>{item.text}</p>
-                                    <span>{item.date}</span>
+                                    <div className='pt-[20px] pl-[30px] w-[340px] h-[96px]'>
+                                        <p className='mt-2'>{item.text}</p>
+                                    </div>
+                                    <p className='text-[#FF96EF] text-sm mt-auto self-end pb-[15px] pr-[20px]'>{item.date}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
-                    <div className='absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2'>
-                        {testimonialsItems.map((_, index) => (
-                            <div
-                                key={index}
-                                onClick={() => handleDotClick(index)}
-                                className={`w-3 h-3 rounded-full cursor-pointer ${index === currentIndex ? 'bg-gray-800' : 'bg-gray-400'}`}
-                            />
-                        ))}
-                    </div>
                 </div>
-            </div>
+                <div className='flex justify-center mt-[50px]'>
+                    {Array.from({ length: totalDots }).map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => handleDotClick(index)}
+                            className={`mx-1 transition-all duration-300 ${index === currentIndex ? 'w-[20px] h-[10px] bg-back rounded' : 'w-[10px] h-[10px] border border-[#8700E880] bg-[#8700E820] rounded-full'}`}
+                        />
+                    ))}
+                </div>
+
+            </div >
         </>
     );
 };
 
-export default Testimonals;
+export default Testimonials;

@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 const Footer = () => {
     const menuItems = [
-        { name: "Home", url: "#home" },
+        { name: "Home", url: "/" },
         { name: "Services", url: "#services" },
         { name: "Portfolio", url: "#portfolio" },
         { name: "Testimonials", url: "#testimonials" },
@@ -24,13 +24,13 @@ const Footer = () => {
     ];
 
     return (
-        <div className='flex flex-col min-h-screen'>
+        <div className='flex flex-col'>
             <div className='pt-[150px]'></div>
             <div className='w-full h-[1px] bg-back'></div>
             <div className='pt-[62px] pl-[80px] flex flex-col flex-grow'>
-                <div className='flex justify-between items-center'>
+                <div className='flex sm:flex-row flex-col sm:justify-between justify-center items-center'>
                     <Image src={Logo} alt="Logo" className='h-[66px] w-[100px]' />
-                    <ul className='flex gap-[30px] pr-[50px]'>
+                    <ul className='flex gap-[30px]  flex-col sm:flex-row'>
                         {menuItems.map((item) => (
                             <li key={item.url} className='flex justify-center items-center'>
                                 <a
@@ -59,9 +59,14 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className='w-full h-[24px] flex justify-center'>
-                <span className='font-[500] font-[raleway] text-[16px] tracking-[2%] leading-[24px]'>©All rights reserved Wide Dimension 2024</span>
-            </div> */}
+            <div className="w-full h-[24px] flex justify-center items-center pt-[47px] pb-[40px]">
+                <span className="font-[500] font-[raleway] sm:text-[16px] text-[12px] tracking-[2%] leading-[24px]">
+                    ©All rights reserved
+                    <span className="primary-gradient"> Wide Dimension </span>
+                    2024
+                </span>
+            </div>
+
         </div>
     );
 };

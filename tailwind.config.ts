@@ -20,6 +20,7 @@ const config: Config = {
 
 
       },
+
       backgroundColor: {
         primary: "#0F0D15",
       }

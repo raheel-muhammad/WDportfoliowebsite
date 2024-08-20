@@ -33,6 +33,52 @@ body {
     /* Ensure color is transparent */
   }
 
+  .gradient-border {
+    position: relative;
+    z-index: 1;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(to right, #9D00FF, #FF00AA);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+  }
+
+  .grad-border {
+    position: relative;
+    z-index: 1;
+  }
+
+  .grad-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(to left, #9D00FF, #FF00AA);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+  }
+
   .primary-gradient {
     background: linear-gradient(to right, #9D00FF, #FF00AA);
     /* Gradient colors */
@@ -60,5 +106,23 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+
+  .responsive-bg {
+    background-image: url('../assets/bgiconssm.png');
+  }
+
+
+  @media (min-width: 768px) {
+    .responsive-bg {
+      background-image: url('../assets/bgiconsmd.png');
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsive-bg {
+      background-image: url('../assets/bgimage.png');
+    }
   }
 }
