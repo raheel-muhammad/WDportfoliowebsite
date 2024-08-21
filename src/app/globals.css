@@ -109,21 +109,22 @@ body {
   }
 
 
-  .bg-mobile {
-    @apply bg-[url('../assets/bgiconssm.png')];
+  .bg-mobile-shade {
+    background-image: url('../assets/bgiconssm.png'), url('../assets/bgshadesm.png');
   }
 
   @screen md {
-    .bg-mobile {
-      @apply bg-[url('../assets/bgiconsmd.png')];
+    .bg-mobile-shade {
+      background-image: url('../assets/bgiconsmd.png'), url('../assets/bgshademd.png');
     }
   }
 
   @screen lg {
-    .bg-mobile {
-      @apply bg-[url('../assets/bgimage.png')];
+    .bg-mobile-shade {
+      background-image: url('../assets/bgimage.png'), url('../assets/bgshade.png');
     }
   }
+
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;

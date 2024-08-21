@@ -83,7 +83,7 @@ const Header: React.FC = () => {
                             <li key={item.url} className='flex justify-center items-center'>
                                 <a
                                     href={item.url}
-                                    className={`flex items-center rounded-[20px] h-[34px] py-[5px] lg:px-[15px] md:px-[10px] font-[500] lg:text-[16px] md:text-[14px] gap-[10px] bg-[#7000C010] tracking-[2%] leading-[24px]
+                                    className={`flex items-center rounded-[20px] h-[34px] py-[5px] lg:px-[15px] md:px-[10px] font-[500] lg:text-[16px] md:text-[14px] gap-[10px] bg-transparent tracking-[2%] leading-[24px]
                                     ${activeMenuItem === item.url ? 'gradient-text gradient-border' : 'text-white border-[#7000C020] border-[1px]'}`}
                                     onClick={() => handleMenuItemClick(item.url)}
                                 >

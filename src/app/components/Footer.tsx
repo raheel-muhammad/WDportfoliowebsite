@@ -46,7 +46,7 @@ const Footer = () => {
                         ))}
                     </ul>
                 </div>
-                <div className='flex lg:justify-end justify-center md:justify-end sm:justify-center lg:pr-[35px] pr-[0px] md:pr-[35px] sm:pr-[0px] sm:pt-[40px] md:pt-0 lg:pt-[0px] pt-[50px]'>
+                <div className='flex lg:justify-end justify-center md:justify-end sm:justify-center lg:pr-[35px] pr-[0px] md:pr-[35px]  sm:pt-[40px] md:pt-0 lg:pt-[0px] pt-[50px]'>
                     <div className='flex items-center pr-[50px] gap-[30px] max-w-[186px] h-[40px]'>
                         {icons.map((item, index) => (
                             <Image
