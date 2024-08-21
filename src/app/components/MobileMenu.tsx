@@ -26,7 +26,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuItems, activeMenuItem, onMe
                 <div className="flex items-center">
                     <Image src={logo} alt="logo" className='sm:w-[80px] sm:h-[38px] h-[23px] w-[60px]' />
                 </div>
-                <span className="sm:text-[20px] text-[12px] text-center sm:w-[160px] sm:h-[23px] w-[96px] h-[14px] font-[500]">Wide Dimension</span>
+                <span className="sm:text-[20px] text-[12px] text-center sm:w-[160px] sm:h-[23px] w-[96px] h-[14px] font-[500] tracking-[2%] leading-[24px]">Wide Dimension</span>
                 <button onClick={onCloseMenu} className="sm:h-[30px] sm:w-[30px] w-[24px] h-[24px] cursor-pointer">
                     <Image src={crossIcon} alt="Close menu" />
                 </button>

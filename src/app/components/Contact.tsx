@@ -10,9 +10,9 @@ const Contact = () => {
     return (
         <>
             <div className='flex flex-col items-center justify-center pt-[199px]'>
-                <p className='font-[700] text-[32px] font-[Raleway] primary-gradient'>CONTACT</p>
+                <p className='font-[700] text-[32px] tracking-[2%] leading-[38px] primary-gradient'>CONTACT</p>
             </div>
-            <div className='flex md:flex-row  flex-col items-center justify-center mt-[156px] mx-[10px] sm:mx-[72px] md:mx-[80px]'>
+            <div className='flex md:flex-row  flex-col items-center justify-center mt-[0px] md:mt-[156px] mx-[10px] sm:mx-[72px] md:mx-[80px]'>
                 <div className='flex w-full md:w-1/2 flex-col justify-center items-center'>
                     <Image src={email} alt='Email' className=' mt-[24px] ' />
 
@@ -37,7 +37,7 @@ const Contact = () => {
 
                     <input type="text" name="text" className=" bg-[#8700E810] border-[1px] border-[#2A0049]  placeholder-[#ffffff60] block  h-[149px]   w-full rounded-[8px] pl-[25px] font-[500] text-[16px] tracking-[2%] leading-[24px]" placeholder="Your Idea" />
 
-                    <button className='max-w-[200px] w-full h-[40px] rounded-[20px]  grad-border bg-submit text-center items-center justify-center flex'>Submit</button>
+                    <button className='max-w-[200px] w-full h-[40px] rounded-[20px]  grad-border bg-submit text-center items-center justify-center flex tracking-[2%] leading-[24px]'>Submit</button>
 
                 </div>
             </div>

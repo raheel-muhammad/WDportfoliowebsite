@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import userImage from "@/assets/UserProfileImage.png";
 import ratings from "@/assets/Ratings.png";
@@ -16,12 +16,16 @@ const testimonialsItems = [
 const Testimonials: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [visibleItems, setVisibleItems] = useState<number>(1);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     const updateVisibleItems = useCallback(() => {
         const width = window.innerWidth;
-        if (width >= 1024) setVisibleItems(3); // lg screens
-        else if (width >= 768) setVisibleItems(2); // md screens
-        else setVisibleItems(1); // sm screens
+        if (width >= 1024) setVisibleItems(3);
+        else if (width >= 768) setVisibleItems(2);
+        else if (width >= 768) setVisibleItems(2);
+        else if (width >= 640) setVisibleItems(2);
+        else setVisibleItems(1);
+
     }, []);
 
     useEffect(() => {
@@ -30,53 +34,80 @@ const Testimonials: React.FC = () => {
         return () => window.removeEventListener('resize', updateVisibleItems);
     }, [updateVisibleItems]);
 
-    const handleDotClick = (index: number) => {
-        setCurrentIndex(index);
-    };
+    useEffect(() => {
+        const handleScroll = () => {
+            if (containerRef.current) {
+                const scrollLeft = containerRef.current.scrollLeft;
+                const containerWidth = containerRef.current.clientWidth;
+                const itemWidth = containerWidth / visibleItems;
+                const newIndex = Math.round(scrollLeft / (itemWidth * visibleItems));
+                setCurrentIndex(newIndex);
+            }
+        };
+
+        const containerElement = containerRef.current;
+        containerElement?.addEventListener('scroll', handleScroll);
+
+        return () => {
+            containerElement?.removeEventListener('scroll', handleScroll);
+        };
+    }, [visibleItems]);
 
     const totalDots = Math.ceil(testimonialsItems.length / visibleItems);
+    const itemWidth = 100 / visibleItems;
 
-    const itemWidth: number = 100 / visibleItems;
-    const transformValue = `-${currentIndex * itemWidth}%`;
+    const handleDotClick = (index: number) => {
+        setCurrentIndex(index);
+        if (containerRef.current) {
+            const containerWidth = containerRef.current.clientWidth;
+            containerRef.current.scrollTo({
+                left: index * containerWidth,
+                behavior: 'smooth',
+            });
+        }
+    };
 
     return (
         <>
             <div className='flex flex-col items-center justify-center pt-[150px]'>
-                <p className='font-[700] text-[32px] font-[Raleway] primary-gradient'>TESTIMONIALS</p>
+                <p className='font-[700] text-[32px] tracking-[2%] leading-[38px] primary-gradient'>TESTIMONIALS</p>
             </div>
-            <div className='relative w-full mt-[80px] px-4  overflow-hidden'>
-                <div className='overflow-hidden'>
+            <div className='relative w-full mt-[80px] px-4 overflow-hidden'>
+                <div ref={containerRef} className='flex justify-start  items-center overflow-x-auto scrollbar-hide'>
                     <div
-                        className='flex transition-transform duration-500 ease-in-out'
-                        style={{ transform: `translateX(${transformValue})`, width: `${testimonialsItems.length * (400 + 40)}px` }} // Adjust width based on testimonial item width + gap
+                        className='flex gap-[40px]'
+                        style={{
+                            width: `${testimonialsItems.length * itemWidth}%`,
+                            scrollSnapType: 'x mandatory',
+                            scrollBehavior: 'smooth',
+                        }}
                     >
                         {testimonialsItems.map((item, index) => (
-                            <div key={index} className='flex-none' style={{ width: '400px', height: '250px', marginRight: '40px' }}> {/* Set fixed width, height and gap */}
-                                <div className='relative gradient-border bg-[#8700E805] rounded-lg flex flex-col' style={{ height: '250px' }}> {/* Add gradient border */}
+                            <div key={index} className='flex-none flex justify-center' style={{ scrollSnapAlign: 'center' }}>
+                                <div className='relative gradient-border bg-[#8700E805] rounded-lg flex flex-col justify-between' style={{ width: '100%', maxWidth: '400px', height: '250px' }}>
                                     <div className='flex items-center gap-[15px] pl-[30px] pt-[30px]'>
                                         <Image
                                             src={item.image}
                                             alt={item.name}
-                                            width={50}
-                                            height={50}
+                                            width={52}
+                                            height={52}
                                             className='rounded-full'
                                         />
                                         <div className='flex flex-col'>
-                                            <p className='font-bold'>{item.name}</p>
-
+                                            <p className='font-[700] text-[16px] tracking-[2%] leading-[20px]'>{item.name}</p>
                                             <Image
                                                 src={item.rating}
                                                 alt="Rating"
-                                                width={100}
+                                                width={88}
                                                 height={20}
+                                                className='pt-[4px]'
                                             />
-
                                         </div>
                                     </div>
-                                    <div className='pt-[20px] pl-[30px] w-[340px] h-[96px]'>
-                                        <p className='mt-2'>{item.text}</p>
+                                    <div className='pt-[20px] pl-[30px] pr-[20px]'>
+                                        <p className='font-[400] text-[16px] tracking-[2%] leading-[24px]'>{item.text}</p>
                                     </div>
-                                    <p className='text-[#FF96EF] text-sm mt-auto self-end pb-[15px] pr-[20px]'>{item.date}</p>
+                                    <p className='text-[#FF96EF] text-[12px] mt-auto self-end pb-[15px] pr-[20px] tracking-[2%] leading-[24px]'>{item.date}</p>
                                 </div>
                             </div>
                         ))}
@@ -91,8 +122,7 @@ const Testimonials: React.FC = () => {
                         />
                     ))}
                 </div>
-
-            </div >
+            </div>
         </>
     );
 };

@@ -10,7 +10,7 @@ const Dropdown = () => {
     };
 
     return (
-        <div className="relative inline-block text-left">
+        <div className="relative inline-block text-left w-full">
             <div>
                 <button
                     type="button"

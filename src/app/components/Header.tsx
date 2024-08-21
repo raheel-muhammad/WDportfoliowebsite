@@ -56,7 +56,7 @@ const Header: React.FC = () => {
                         <div className="flex items-center">
                             <Image src={logo} alt="logo" className=' sm:flex md:hidden lg:hidden flex sm:w-[80px] sm:h-[38px] h-[23px] w-[60px] ' />
                         </div>
-                        <span className='sm:text-[20px] text-[12px] text-center sm:w-[160px] sm:h-[23px] w-[96px] h-[14px] font-[500] sm:flex md:hidden lg:hidden flex'>Wide Dimension</span>
+                        <span className='sm:text-[20px] text-[12px] text-center sm:w-[160px] sm:h-[23px] w-[96px] h-[14px] font-[500] sm:flex md:hidden lg:hidden flex tracking-[2%] leading-[24px]'>Wide Dimension</span>
                         <Image
                             src={menuIcon}
                             alt="Menu Icon"
@@ -78,12 +78,12 @@ const Header: React.FC = () => {
                 <div className='relative flex justify-between items-center '>
                     <Image src={Logo} alt="Logo" className='h-[66px] w-[100px] md:flex sm:hidden hidden lg:flex' />
 
-                    <ul className='flex gap-[15px] pr-[20px]'>
+                    <ul className='flex md:gap-[8px] lg:gap-[15px] pr-[20px]'>
                         {menuItems.map((item) => (
                             <li key={item.url} className='flex justify-center items-center'>
                                 <a
                                     href={item.url}
-                                    className={`flex items-center rounded-[20px] h-[34px] py-[5px] px-[15px] font-[500] text-[16px] gap-[10px] bg-[#7000C010] tracking-[2%] leading-[24px]
+                                    className={`flex items-center rounded-[20px] h-[34px] py-[5px] lg:px-[15px] md:px-[10px] font-[500] lg:text-[16px] md:text-[14px] gap-[10px] bg-[#7000C010] tracking-[2%] leading-[24px]
                                     ${activeMenuItem === item.url ? 'gradient-text gradient-border' : 'text-white border-[#7000C020] border-[1px]'}`}
                                     onClick={() => handleMenuItemClick(item.url)}
                                 >

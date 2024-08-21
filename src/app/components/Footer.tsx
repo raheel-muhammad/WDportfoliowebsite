@@ -62,7 +62,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="w-full h-[24px] flex justify-center text-center items-center lg:pt-[47px] sm:pt-[47px] md:[47px] pt-[30px] pb-[40px]">
-                <span className="font-[500] font-[raleway] sm:text-[16px] text-[12px] tracking-[2%] leading-[24px]">
+                <span className="font-[500] sm:text-[16px] text-[12px] tracking-[2%] leading-[24px]">
                     ©All rights reserved
                     <span className="primary-gradient"> Wide Dimension </span>
                     2024
