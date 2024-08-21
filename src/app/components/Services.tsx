@@ -25,16 +25,16 @@ const Services = () => {
     ];
     return (
         <>
-            <div className=' flex flex-col items-center justify-center pt-[199px]'>
+            <div className=' flex flex-col items-center justify-center lg:pt-[199px] md:pt-[199px] sm:pt-[140px] pt-[140px]'>
                 <p className='font-[700] text-[32px] font-[raleway] primary-gradient'>SERVICE</p>
             </div>
             <div className='pt-[80px] flex justify-center items-center'>
                 <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[50px] '>
                     {serviceItems.map((item, index) => (
-                        <div key={index} className='w-[320px] h-[320px] flex flex-col justify-center items-center rounded-[15px]  gradient-border'>
+                        <div key={index} className='w-full max-w-[320px] h-[320px] flex flex-col justify-center items-center rounded-[15px]  gradient-border'>
                             <Image src={item.icon} alt="" width={50} height={50} />
                             <span className='font-[700] text-[20px] pt-[25px] pb-[15px] font-raleway'>{item.title}</span>
-                            <span className='font-[400] text-[14px] w-[280px] h-[80px] justify-center items-center text-center font-raleway'>{item.text}</span>
+                            <span className='font-[400] text-[14px] px-[20px] max-w-[280px] w-full h-[80px] justify-center items-center text-center'>{item.text}</span>
                         </div>
 
                     ))}

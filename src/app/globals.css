@@ -109,20 +109,19 @@ body {
   }
 
 
-  .responsive-bg {
-    background-image: url('../assets/bgiconssm.png');
+  .bg-mobile {
+    @apply bg-[url('../assets/bgiconssm.png')];
   }
 
-
-  @media (min-width: 768px) {
-    .responsive-bg {
-      background-image: url('../assets/bgiconsmd.png');
+  @screen md {
+    .bg-mobile {
+      @apply bg-[url('../assets/bgiconsmd.png')];
     }
   }
 
-  @media (min-width: 1024px) {
-    .responsive-bg {
-      background-image: url('../assets/bgimage.png');
+  @screen lg {
+    .bg-mobile {
+      @apply bg-[url('../assets/bgimage.png')];
     }
   }
 }

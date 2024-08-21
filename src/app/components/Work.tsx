@@ -41,12 +41,12 @@ const Work = () => {
         <>
             <div className='flex flex-col items-center justify-center pt-[150px]'>
                 <p className='font-[700] text-[32px] font-[Raleway] primary-gradient'>OUR WORK</p>
-                <div className='w-[1080px] h-[40px] flex justify-center items-center pt-[80px]'>
-                    <ul className='flex justify-center items-center gap-[15px]'>
+                <div className=' h-[40px] flex justify-center items-center pt-[80px]'>
+                    <ul className='flex justify-center items-center md:gap-[8px] lg:gap-[15px] gap-[8px]'>
                         {menuItems.map((item, index) => (
                             <li key={index} className='flex justify-center items-center'>
                                 <a
-                                    className={`inline-flex items-center rounded-[20px] px-[30px] py-[0px] h-[40px] font-[500] text-[16px] gap-[10px] tracking-[2%] leading-[24px]
+                                    className={`inline-flex items-center rounded-[20px] lg:px-[30px] px-[15px] md:px-[15px] py-[0px] h-[40px] font-[500] md:text-[12px] lg:text-[16px] text-[12px] gap-[10px] tracking-[2%] leading-[24px]
         ${activeMenuItem === item.name
                                             ? 'gradient-text gradient-border bg-[#8700E810]'
                                             : 'text-white bg-[#8700E810] border-[#7000C020] border-[1px]'
@@ -65,9 +65,9 @@ const Work = () => {
             <div className='pt-[60px] flex justify-center items-center'>
                 <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[50px]'>
                     {workItems.map((item, index) => (
-                        <div key={index} className='w-[320px] h-[360px] flex flex-col justify-center items-center rounded-[15px]'>
-                            <Image src={item.image} alt="" width={320} height={320} />
-                            <span className='font-[500] font-[raleway] text-[16px] pt-[20px] tracking-[2%] leading-[19px]'>{item.name}</span>
+                        <div key={index} className='max-w-[320px] w-full h-[360px] flex flex-col justify-center items-center rounded-[15px] px-[10px]'>
+                            <Image src={item.image} alt="" />
+                            <span className='font-[500] text-[16px] pt-[20px] tracking-[2%] leading-[19px]'>{item.name}</span>
                         </div>
 
                     ))}

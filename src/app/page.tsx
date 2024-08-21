@@ -5,11 +5,11 @@ import Work from "./components/Work";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import bgicon from "../assets/bgiconsmd.png"
+
 export default function Home() {
   return (
     <div className="bg-[#0F0D15] h-full text-[#fff] w-full overflow-hidden">
-      <section id="/" className="scroll-pt-5 responsive-bg bg-auto bg-no-repeat bg-center">
+      <section id="/" className="scroll-pt-5 bg-mobile bg-auto bg-no-repeat bg-center">
         <Hero />
       </section>
       <section id="services" className="scroll-pt-5">
