@@ -108,24 +108,6 @@ body {
     text-wrap: balance;
   }
 
-
-  .bg-mobile-shade {
-    background-image: url('../assets/bgiconssm.png'), url('../assets/bgshadesm.png');
-  }
-
-  @screen md {
-    .bg-mobile-shade {
-      background-image: url('../assets/bgiconsmd.png'), url('../assets/bgshademd.png');
-    }
-  }
-
-  @screen lg {
-    .bg-mobile-shade {
-      background-image: url('../assets/bgimage.png'), url('../assets/bgshade.png');
-    }
-  }
-
-
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }

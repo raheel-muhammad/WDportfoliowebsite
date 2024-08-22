@@ -8,8 +8,8 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="bg-[#0F0D15] h-full text-[#fff] w-full overflow-hidden">
-      <section id="/" className="scroll-pt-5 bg-mobile-shade bg-auto bg-no-repeat bg-center">
+    <div className="bg-[#0F0D15]  h-full text-[#fff] w-full overflow-hidden">
+      <section id="/" className="scroll-pt-5">
         <Hero />
       </section>
       <section id="services" className="scroll-pt-5">

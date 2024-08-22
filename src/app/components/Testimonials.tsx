@@ -21,7 +21,7 @@ const Testimonials: React.FC = () => {
     const updateVisibleItems = useCallback(() => {
         const width = window.innerWidth;
         if (width >= 1024) setVisibleItems(3);
-        else if (width >= 768) setVisibleItems(2);
+        else if (width >= 900) setVisibleItems(2);
         else if (width >= 768) setVisibleItems(2);
         else if (width >= 640) setVisibleItems(2);
         else setVisibleItems(1);
@@ -72,8 +72,8 @@ const Testimonials: React.FC = () => {
             <div className='flex flex-col items-center justify-center pt-[150px]'>
                 <p className='font-[700] text-[32px] tracking-[2%] leading-[38px] primary-gradient'>TESTIMONIALS</p>
             </div>
-            <div className='relative w-full mt-[80px] px-4 overflow-hidden'>
-                <div ref={containerRef} className='flex justify-start  items-center overflow-x-auto scrollbar-hide'>
+            <div className='relative w-full mt-[80px] px-[120px] flex items-center  flex-col'>
+                <div ref={containerRef} className='flex  justify-start  items-center overflow-x-auto scrollbar-hide'>
                     <div
                         className='flex gap-[40px]'
                         style={{

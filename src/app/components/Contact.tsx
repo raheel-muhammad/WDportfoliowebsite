@@ -12,7 +12,7 @@ const Contact = () => {
             <div className='flex flex-col items-center justify-center pt-[199px]'>
                 <p className='font-[700] text-[32px] tracking-[2%] leading-[38px] primary-gradient'>CONTACT</p>
             </div>
-            <div className='flex md:flex-row  flex-col items-center justify-center mt-[0px] md:mt-[156px] mx-[10px] sm:mx-[72px] md:mx-[80px]'>
+            <div className='flex md:flex-row  flex-col items-center justify-center mt-[0px] md:mt-[156px] mx-[10px] sm:mx-[72px] md:ml-[60px] md:mr-[120px]'>
                 <div className='flex w-full md:w-1/2 flex-col justify-center items-center'>
                     <Image src={email} alt='Email' className=' mt-[24px] ' />
 
