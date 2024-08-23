@@ -40,7 +40,7 @@ const Work = () => {
             <div className='flex flex-col items-center justify-center pt-[150px]'>
                 <p className='font-[700] text-[32px] tracking-[2%] leading-[38px] primary-gradient'>OUR WORK</p>
                 <div className='flex justify-center items-center pt-[80px] w-full'>
-                    <ul className='flex lg:justify-center justify-start items-center gap-[15px] overflow-x-auto w-full scrollbar-hide scroll-smooth px-[10px] md:px-[40px] lg:px-[23px]'>
+                    <ul className='flex lg:justify-center justify-start items-center gap-[15px] overflow-x-auto w-full scrollbar-hide scroll-smooth px-[10px] md:px-[40px] lg:px-[23px] cursor-pointer'>
                         {menuItems.map((item, index) => (
                             <li key={index} className='flex justify-center items-center flex-shrink-0'>
                                 <a

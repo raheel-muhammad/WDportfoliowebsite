@@ -29,7 +29,7 @@ const Header: React.FC = () => {
     };
 
     const handleResize = () => {
-        setIsMobileView(window.innerWidth <= 768);
+        setIsMobileView(window.innerWidth < 768);
     };
 
     const toggleMenu = () => {
@@ -52,8 +52,8 @@ const Header: React.FC = () => {
         <div className='relative'>
             {isMobileView ? (
                 <>
-                    <div className='flex justify-between items-center w-full'>
-                        <div className="flex items-center">
+                    <div className='flex justify-between items-center w-full' >
+                        <div className="flex items-center cursor-pointer">
                             <Image src={logo} alt="logo" className=' sm:flex md:hidden lg:hidden flex sm:w-[80px] sm:h-[38px] h-[23px] w-[60px] ' />
                         </div>
                         <span className='sm:text-[20px] text-[12px] text-center sm:w-[160px] sm:h-[23px] w-[96px] h-[14px] font-[500] sm:flex md:hidden lg:hidden flex tracking-[2%] leading-[24px]'>Wide Dimension</span>
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
 
                 </>
             ) : (
-                <div className='relative flex justify-between items-center '>
+                <div className='relative flex justify-between items-center cursor-pointer'>
                     <Image src={Logo} alt="Logo" className='h-[66px] w-[100px] md:flex sm:hidden hidden lg:flex' />
 
                     <ul className='flex md:gap-[8px] lg:gap-[15px] pr-[20px]'>

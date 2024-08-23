@@ -72,8 +72,8 @@ const Testimonials: React.FC = () => {
             <div className='flex flex-col items-center justify-center pt-[150px]'>
                 <p className='font-[700] text-[32px] tracking-[2%] leading-[38px] primary-gradient'>TESTIMONIALS</p>
             </div>
-            <div className='relative w-full mt-[80px] px-[120px] flex items-center  flex-col'>
-                <div ref={containerRef} className='flex  justify-start  items-center overflow-x-auto scrollbar-hide'>
+            <div className='relative  mt-[80px] justify-center flex items-center flex-col'>
+                <div ref={containerRef} className='flex  justify-center  items-center overflow-x-auto scrollbar-hide'>
                     <div
                         className='flex gap-[40px]'
                         style={{

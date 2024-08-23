@@ -9,7 +9,15 @@ const Hero = () => {
         <>
             <div className='sm:pt-[30px] pt-[20px] sm:pr-[40px] sm:pl-[40px] md:pr-[0px] px-[15px] relative'>
                 <Header />
-                <Image src={bgImage} alt='backgroun-image' className='absolute' objectFit='contain' />
+                <div className='absolute top-0 left-0 w-full h-[70vh] lg:h-[170vh] md:h-[150vh] sm:h-[100vh]'>
+                    <Image
+                        src={bgImage}
+                        alt='background-image'
+                        layout='fill'
+                        objectFit='contain'
+                        className='pointer-events-none'
+                    />
+                </div>
             </div>
             <div className="flex flex-col justify-center items-center">
                 <div className=' lg:w-[194px] md:w-[194px] sm:w-[120px] w-[120px] sm:h-[24px] h-[24px] lg:h-[39px] md:h-[39px] flex justify-center items-center rounded-[8px] border-[1px] border-[#7000C0] gap-[10px]  sm:mt-[82px] mt-[82px] lg:mt-[180px] md:mt-[150px] lg:mb-[40px] md:mb-[40px] sm:mb-[25px] mb-[25px] bg-background ' >

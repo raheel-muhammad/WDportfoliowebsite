@@ -452,15 +452,15 @@ const Dropdown = () => {
             <button
                 onClick={handleDropdownToggle}
                 onKeyDown={handleKeyDown}
-                className="flex items-center justify-between w-full h-[50px] bg-[#8700E810] border-[1px] border-[#2A0049] rounded-[8px] pl-[25px] pr-[13px] font-[500] text-[16px] tracking-[2%] leading-[24px]"
+                className="flex items-center justify-between w-full h-[50px] bg-[#8700E810] border-[1px] border-[#2A0049] rounded-[8px] pl-[25px] md:pl-[20px] pr-[13px] md:pr-[10px] lg:pl-[25px] lg:pr-[13px] font-[500] text-[16px] tracking-[2%] leading-[24px] flex-shrink-0"
             >
                 <span className={selectedCountry ? 'text-[#ffffff60] font-[poppins.sans-serif]' : ' text-[#ffffff60]'}>
                     {selectedCountry || 'Select Country'}
                 </span>
-                <Image src={dropdownIcon} alt="Dropdown Icon" />
+                <Image src={dropdownIcon} alt="Dropdown Icon" style={{ transition: 'transform 0.2s', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }} />
             </button>
             {isOpen && (
-                <ul className="bg-[#8700E810] text-[#ffffff60] block w-full scrollbar-hide overflow-y-auto max-h-[100px]">
+                <ul className="bg-[#8700E810] text-[#ffffff60] block w-full scrollbar-hide overflow-y-auto max-h-[150px] absolute flex-shrink-0">
                     {countries.map(country => (
                         <li
                             key={country.code}
