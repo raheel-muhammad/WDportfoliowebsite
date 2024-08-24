@@ -21,9 +21,7 @@ const Testimonials: React.FC = () => {
     const updateVisibleItems = useCallback(() => {
         const width = window.innerWidth;
         if (width >= 1024) setVisibleItems(3);
-        else if (width >= 900) setVisibleItems(2);
         else if (width >= 768) setVisibleItems(2);
-        else if (width >= 640) setVisibleItems(2);
         else setVisibleItems(1);
 
     }, []);
@@ -72,10 +70,10 @@ const Testimonials: React.FC = () => {
             <div className='flex flex-col items-center justify-center pt-[150px]'>
                 <p className='font-[700] text-[32px] tracking-[2%] leading-[38px] primary-gradient'>TESTIMONIALS</p>
             </div>
-            <div className='relative  mt-[80px] justify-center flex items-center flex-col'>
-                <div ref={containerRef} className='flex  justify-center  items-center overflow-x-auto scrollbar-hide'>
+            <div className='pt-[80px] flex justify-center items-center px-[10px] sm:px-[30px] md:px-[60px] lg:px-[100px]'>
+                <div ref={containerRef} className='relative overflow-x-auto scrollbar-hide'>
                     <div
-                        className='flex gap-[40px]'
+                        className='grid grid-flow-col auto-cols-[300px] sm:auto-cols-[300px] md:auto-cols-[400px] lg:auto-cols-[400px] gap-[40px]'
                         style={{
                             width: `${testimonialsItems.length * itemWidth}%`,
                             scrollSnapType: 'x mandatory',
@@ -105,7 +103,7 @@ const Testimonials: React.FC = () => {
                                         </div>
                                     </div>
                                     <div className='pt-[20px] pl-[30px] pr-[20px]'>
-                                        <p className='font-[400] text-[16px] tracking-[2%] leading-[24px]'>{item.text}</p>
+                                        <p className='font-[400] text-[14px] md:text-[16px] tracking-[2%] leading-[24px]'>{item.text}</p>
                                     </div>
                                     <p className='text-[#FF96EF] text-[12px] mt-auto self-end pb-[15px] pr-[20px] tracking-[2%] leading-[24px]'>{item.date}</p>
                                 </div>
@@ -113,15 +111,15 @@ const Testimonials: React.FC = () => {
                         ))}
                     </div>
                 </div>
-                <div className='flex justify-center mt-[50px]'>
-                    {Array.from({ length: totalDots }).map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => handleDotClick(index)}
-                            className={`mx-1 transition-all duration-300 ${index === currentIndex ? 'w-[20px] h-[10px] bg-back rounded' : 'w-[10px] h-[10px] border border-[#8700E880] bg-[#8700E820] rounded-full'}`}
-                        />
-                    ))}
-                </div>
+            </div>
+            <div className='flex justify-center mt-[50px]'>
+                {Array.from({ length: totalDots }).map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => handleDotClick(index)}
+                        className={`mx-1 transition-all duration-300 ${index === currentIndex ? 'w-[20px] h-[10px] bg-back rounded' : 'w-[10px] h-[10px] border border-[#8700E880] bg-[#8700E820] rounded-full'}`}
+                    />
+                ))}
             </div>
         </>
     );
