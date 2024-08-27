@@ -78,13 +78,13 @@ const Header: React.FC = () => {
                 <div className='relative flex justify-between items-center cursor-pointer'>
                     <Image src={Logo} alt="Logo" className='h-[66px] w-[100px] md:flex sm:hidden hidden lg:flex' />
 
-                    <ul className='flex md:gap-[8px] lg:gap-[15px] pr-[20px]'>
+                    <ul className='flex md:gap-[8px] lg:gap-[15px] pr-[20px] md:pr-[50px]'>
                         {menuItems.map((item) => (
                             <li key={item.url} className='flex justify-center items-center'>
                                 <a
                                     href={item.url}
-                                    className={`flex items-center rounded-[20px] h-[34px] py-[5px] lg:px-[15px] md:px-[10px] font-[500] lg:text-[16px] md:text-[14px] gap-[10px] bg-transparent tracking-[2%] leading-[24px]
-                                    ${activeMenuItem === item.url ? 'gradient-text gradient-border' : 'text-white border-[#7000C020] border-[1px]'}`}
+                                    className={`flex items-center rounded-[20px] h-[34px] py-[5px] lg:px-[15px] md:px-[10px] font-[500] lg:text-[16px] md:text-[14px] gap-[10px] bg-[#7000C010] tracking-[2%] leading-[24px]
+                                    ${activeMenuItem === item.url ? 'gradient-text gradient-border bg-[#7000C010]' : 'text-white border-[#7000C020] border-[1px] bg-[#7000C010]'}`}
                                     onClick={() => handleMenuItemClick(item.url)}
                                 >
                                     <Image src={item.icon} alt={`${item.name} icon`} width={18} height={18} />

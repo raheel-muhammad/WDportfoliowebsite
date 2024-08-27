@@ -29,12 +29,12 @@ const Services = () => {
                 <p className='font-[700] text-[20px] md:text-[32px] primary-gradient leading-[38px] tracking-[2%]'>SERVICES</p>
             </div>
             <div className='pt-[80px] flex justify-center items-center'>
-                <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[50px]'>
+                <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[50px] px-[10px]'>
                     {serviceItems.map((item, index) => (
                         <div key={index} className='w-full max-w-[320px] h-[320px] flex flex-col justify-center items-center rounded-[15px] gradient-border bg-[#8700E805]'>
                             <Image src={item.icon} alt="" width={50} height={50} />
                             <span className='font-[700] text-[20px] pt-[25px] pb-[15px] tracking-[2%] leading-[24px]'>{item.title}</span>
-                            <span className='font-[400] text-[14px] px-[20px] w-[300px] text-center justify-center items-center  tracking-[2%] leading-[20px]'>{item.text}</span>
+                            <span className='font-[400] text-[14px] px-[20px] w-[310px] text-center justify-center items-center  tracking-[2%] leading-[20px]'>{item.text}</span>
                         </div>
 
                     ))}

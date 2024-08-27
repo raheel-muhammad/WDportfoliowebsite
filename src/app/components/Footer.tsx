@@ -1,5 +1,4 @@
 import React from 'react';
-import Logo from "@/assets/Logo.png";
 import Image from 'next/image';
 import facebookIcon from "@/assets/facebookIcon.svg";
 import instagramIcon from "@/assets/InstagramIcon.svg";
@@ -28,11 +27,14 @@ const Footer = () => {
         <div className='flex flex-col'>
             <div className='pt-[150px]'></div>
             <div className='w-full h-[1px] bg-back'></div>
-            <div className='pt-[62px] lg:pl-[80px] md:pl-[80px] sm:pl-[0px] flex flex-col flex-grow'>
+            <div className='pt-[50px] lg:pl-[60px] md:pl-[60px] sm:pl-[0px] flex flex-col flex-grow'>
                 <div className='flex md:flex-row sm:flex-col lg:flex-row flex-col md:justify-between sm:justify-center lg:justify-between items-center'>
-                    <Image src={Logo} alt="Logo" className='h-[66px] w-[100px] sm:hidden md:flex lg:flex hidden' />
-                    <Image src={logo} alt="logo" className='h-[38px] w-[80px] lg:hidden sm:flex md:hidden flex' />
-                    <span className='text-[16px] font-medium text-center sm:pt-[16px] md:pt-0 lg:pt-0 pt-[16px] lg:hidden sm:flex md:hidden flex' >Wide Dimension</span>
+                    <Link href="/">
+                        <div className='flex flex-col justify-center items-center md:gap-[15px] gap-[0px] cursor-pointer'>
+                            <Image src={logo} alt="logo" className='h-[38px] w-[80px] flex' />
+                            <span className='text-[16px] font-medium text-center sm:pt-[16px] md:pt-0 lg:pt-0 pt-[16px] flex'>Wide Dimension</span>
+                        </div>
+                    </Link>
                     <ul className='flex gap-[30px] sm:pt-[30px] md:pt-0 lg:pt-[0px] pt-[50px] flex-col sm:flex-row lg:pr-[50px] md:pr-[50px] sm:pr-[0px]'>
                         {menuItems.map((item) => (
                             <li key={item.url} className='flex justify-center items-center'>

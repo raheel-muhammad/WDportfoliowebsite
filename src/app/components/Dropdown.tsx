@@ -460,7 +460,7 @@ const Dropdown = () => {
                 <Image src={dropdownIcon} alt="Dropdown Icon" style={{ transition: 'transform 0.2s', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }} />
             </button>
             {isOpen && (
-                <ul className="bg-[#8700E810] text-[#ffffff60] block w-full scrollbar-hide overflow-y-auto max-h-[150px] absolute flex-shrink-0">
+                <ul className="bg-[#0F0D15] text-[#ffffff60] country-border  shadow-xl block w-full scrollbar-hide overflow-y-auto max-h-[150px] absolute flex-shrink-0">
                     {countries.map(country => (
                         <li
                             key={country.code}

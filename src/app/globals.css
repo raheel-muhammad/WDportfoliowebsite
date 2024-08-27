@@ -33,6 +33,12 @@ body {
     /* Ensure color is transparent */
   }
 
+  .country-border {
+    border: 1px solid transparent;
+    border-image: linear-gradient(to right, #9D00FF, #FF00AA);
+    border-image-slice: 1;
+  }
+
   .gradient-border {
     position: relative;
     z-index: 1;

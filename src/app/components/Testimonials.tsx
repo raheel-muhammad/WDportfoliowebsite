@@ -67,7 +67,7 @@ const Testimonials: React.FC = () => {
 
     return (
         <>
-            <div className='flex flex-col items-center justify-center pt-[150px]'>
+            <div className='flex flex-col items-center justify-center pt-[250px]'>
                 <p className='font-[700] text-[32px] tracking-[2%] leading-[38px] primary-gradient'>TESTIMONIALS</p>
             </div>
             <div className='pt-[80px] flex justify-center items-center px-[10px] sm:px-[30px] md:px-[60px] lg:px-[100px]'>

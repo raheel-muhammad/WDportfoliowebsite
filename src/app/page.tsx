@@ -5,23 +5,33 @@ import Work from "./components/Work";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import bgImage from '@/assets/bgimage.png'
 
 export default function Home() {
   return (
-    <div className="bg-[#0F0D15]  h-full text-[#fff] w-full overflow-hidden">
-      <section id="/" className="scroll-pt-5">
+    <div className="bg-[#0F0D15]  h-full text-[#fff] w-screen overflow-hidden relative">
+      <div className='absolute top-0 left-0 w-screen h-[70vh] lg:h-[170vh] md:h-[150vh] sm:h-[100vh]'>
+        <Image
+          src={bgImage}
+          alt='Icon-Image'
+          layout='fill'
+          objectFit='contain'
+          className='pointer-events-none w-[100vw]'
+        />
+      </div>
+      <section id="/">
         <Hero />
       </section>
-      <section id="services" className="scroll-pt-5">
+      <section id="services">
         <Services />
       </section>
-      <section id="portfolio" className="scroll-pt-5">
+      <section id="portfolio">
         <Work />
       </section>
-      <section id="testimonials" className="scroll-pt-5">
+      <section id="testimonials">
         <Testimonials />
       </section>
-      <section id="contact" className="scroll-pt-5">
+      <section id="contact">
         <Contact />
       </section>
       <section>
