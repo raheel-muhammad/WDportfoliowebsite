@@ -46,7 +46,8 @@ const Work = () => {
         { name: "SEO Strategy", image: wideTraders, category: "Digital Marketing" },
         { name: "Corporate Website", image: webApp, category: "Web Apps" },
         { name: "Productivity Mobile App", image: mobApp, category: "Mobile Apps" },
-        { name: "Digital Advertising", image: wdIms, category: "Digital Marketing" }
+        { name: "Digital Advertising", image: wdIms, category: "Digital Marketing" },
+
     ];
 
     const filteredWorkItems = activeMenuItem === "All"
@@ -63,14 +64,14 @@ const Work = () => {
                 <p className='font-[700] text-[32px] tracking-[2%] leading-[38px] primary-gradient'>OUR WORK</p>
             </div>
             <div className='flex justify-center items-center pt-[80px] w-full'>
-                <ul className='flex lg:justify-center justify-start items-center gap-[15px] overflow-x-auto w-full scrollbar-hide scroll-smooth px-[10px] md:px-[40px] cursor-pointer'>
+                <ul className='flex lg:justify-center justify-start items-center gap-[15px] overflow-x-auto w-full scrollbar-hide scroll-smooth px-[10px] md:px-[40px] cursor-pointer '>
                     {menuItems.map((item, index) => (
-                        <li key={index} className='flex justify-center items-center flex-shrink-0'>
+                        <li key={index} className='flex justify-center items-center flex-shrink-0 bg-[#8700E810] rounded-[20px]'>
                             <a
-                                className={`inline-flex items-center rounded-[20px] px-[30px] py-[0px] h-[40px] font-[500] text-[16px] gap-[10px] tracking-[2%] leading-[19px] bg-[#8700E810]
+                                className={`inline-flex items-center rounded-[20px] px-[30px] py-[0px] h-[40px] font-[700] text-[16px] gap-[10px] tracking-[2%] leading-[19px] 
                                     ${activeMenuItem === item.name
-                                        ? 'gradient-text gradient-border bg-[#8700E810]'
-                                        : 'text-white bg-[#8700E810] border-[#7000C020] border-[1px]'
+                                        ? 'gradient-text gradient-border '
+                                        : 'text-white  border-[#7000C020] border-[1px]'
                                     }`}
                                 onClick={() => handleMenuItemClick(item.name)}
                             >
@@ -80,10 +81,10 @@ const Work = () => {
                     ))}
                 </ul>
             </div>
-            <div className='pt-[50px] flex justify-center items-center'>
-                <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px]'>
+            <div className='pt-[40px] flex justify-center items-center'>
+                <div className='flex flex-wrap justify-center items-center gap-[40px] mx-[10px]'>
                     {filteredWorkItems.map((item, index) => (
-                        <div key={index} className='max-w-[320px] w-full h-[360px] flex flex-col justify-center items-center rounded-[15px] px-[10px]'>
+                        <div key={index} className='max-w-[320px] w-full h-[360px] flex flex-col justify-center items-center rounded-[15px]'>
                             <Image src={item.image} alt={item.name} />
                             <span className='font-[500] text-[16px] pt-[20px] tracking-[2%] leading-[19px]'>{item.name}</span>
                         </div>

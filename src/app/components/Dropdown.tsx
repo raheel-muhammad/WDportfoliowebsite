@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import dropdownIcon from '@/assets/dropdownIcon.svg';
+import searchIcon from "@/assets/SearchIcon.svg"
 
 const Dropdown = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -460,12 +461,16 @@ const Dropdown = () => {
                 <Image src={dropdownIcon} alt="Dropdown Icon" style={{ transition: 'transform 0.2s', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }} />
             </button>
             {isOpen && (
-                <ul className="bg-[#0F0D15] text-[#ffffff60] country-border  shadow-xl block w-full scrollbar-hide overflow-y-auto max-h-[150px] absolute flex-shrink-0">
+                <ul className="bg-[#0F0D15] text-[#ffffff] country-border shadow-3xl block w-full scrollbar-hide overflow-y-auto max-h-[200px] absolute z-10 flex-shrink-0 ">
+                    <div className='flex justify-between items-center gradient-border h-[32px] rounded-[5px] mx-[10px] my-[15px] px-[10px]'>
+                        <span className='font-[500] text-[14px] tracking-[2%] leading-[24px]'>Search Country</span>
+                        <Image src={searchIcon} alt='searchIcon' width={12} height={12} />
+                    </div>
                     {countries.map(country => (
                         <li
                             key={country.code}
                             onClick={() => handleCountrySelect(country)}
-                            className="p-4 cursor-pointer hover:bg-[#8700E805] flex justify-between items-center"
+                            className="p-4 cursor-pointer hover:bg-[#8700E805] flex justify-start items-center gap-[15px]"
                             style={{ fontFamily: 'Poppins, sans-serif' }}
                         >
                             <Image
@@ -475,9 +480,7 @@ const Dropdown = () => {
                                 height={15}
                                 className="mr-2"
                             />
-                            <span>{country.label}</span>
-                            <span>{country.code}</span>
-                            <span>(+{country.phone})</span>
+                            <span>{country.label} (+{country.phone})</span>
                         </li>
                     ))}
                 </ul>

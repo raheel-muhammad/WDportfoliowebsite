@@ -9,8 +9,8 @@ import bgImage from '@/assets/bgimage.png'
 
 export default function Home() {
   return (
-    <div className="bg-[#0F0D15]  h-full text-[#fff] w-screen overflow-hidden relative">
-      <div className='absolute top-0 left-0 w-screen h-[70vh] lg:h-[170vh] md:h-[150vh] sm:h-[100vh]'>
+    <div className="bg-[#0F0D15]  h-full text-[#fff] w-full">
+      <div className='absolute top-0 left-0 w-full h-[70vh] lg:h-[170vh] md:h-[150vh] sm:h-[100vh]'>
         <Image
           src={bgImage}
           alt='Icon-Image'

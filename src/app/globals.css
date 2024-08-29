@@ -24,13 +24,11 @@ body {
 
   .gradient-text {
     background: linear-gradient(to right, #7000C010, #9D00FF, #FF00AA);
-    /* Gradient colors */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    /* For browsers that support background-clip */
     color: transparent;
-    /* Ensure color is transparent */
+
   }
 
   .country-border {

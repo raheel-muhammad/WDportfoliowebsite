@@ -3,11 +3,10 @@ import './globals.css';
 import { Metadata } from 'next';
 
 
-const raleway = Raleway({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin-ext"] });
 
 export const metadata: Metadata = {
   title: 'WD Official-Website',
-  description: 'Your website description',
   icons: {
     icon: '/wdLogo.png',
   },
